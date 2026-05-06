@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 class Task{
     String title;
     boolean isCompleted;
@@ -6,15 +7,18 @@ class Task{
         this.title=title;
         this.isCompleted=isCompleted;
     }
-    public void display() {
-    System.out.println(title + " - " + (isCompleted ? "Done" : "Pending"));
-}
-}
+}   
 public class Main{
     public static void main(String[] args) {
-        Task t1=new Task("learn java", false);
-        Task t2=new Task("practice java", true);
-        t1.display();
-        t2.display();
+        
+        ArrayList<Task> tasks = new ArrayList<>();
+        tasks.add(new Task("Learn Java",false));
+        tasks.add(new Task("Build To-Do App",true ));
+        tasks.add(new Task("Practice Coding",true));
+
+        for (int i = 0; i < tasks.size(); i++) {
+        Task t = tasks.get(i);
+        System.out.println((i + 1) + ". " + t.title + " - " + (t.isCompleted ? "Done" : "Pending"));
+}
     }
 }
